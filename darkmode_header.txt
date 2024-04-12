@@ -23,7 +23,7 @@
 
 <body>
 
-  <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <header id="pageHeader" class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">SE</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -69,12 +69,17 @@
   <script>
     const darkModeSwitch = document.getElementById('darkModeSwitch');
     const body = document.body;
+    const header = document.getElementById('pageHeader');
 
     darkModeSwitch.addEventListener('change', () => {
       if (darkModeSwitch.checked) {
         body.classList.add('dark-mode');
+        header.classList.remove('navbar-light');
+        header.classList.add('navbar-dark', 'bg-dark');
       } else {
         body.classList.remove('dark-mode');
+        header.classList.remove('navbar-dark', 'bg-dark');
+        header.classList.add('navbar-light');
       }
     });
   </script>
