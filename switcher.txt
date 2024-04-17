@@ -34,3 +34,56 @@
   // Event listener for dark mode switch
   darkModeSwitch.addEventListener('change', toggleDarkMode);
 </script>
+-------
+:root {
+  --background-color-light: #ffffff;
+  --text-color-light: #000000;
+  --background-color-dark: #1a1a1a;
+  --text-color-dark: #ffffff;
+}
+
+body {
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
+}
+
+.dark-mode {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+  }
+}
+
+const darkModeSwitch = document.getElementById('darkModeSwitch');
+const body = document.body;
+const header = document.getElementById('pageHeader');
+const jumbotron = document.getElementById('jumbotron');
+
+function toggleDarkMode() {
+  if (darkModeSwitch.checked) {
+    body.classList.add('dark-mode');
+    header.classList.remove('navbar-light');
+    header.classList.add('navbar-dark', 'bg-dark');
+    localStorage.setItem('darkMode', 'true');
+  } else {
+    body.classList.remove('dark-mode');
+    header.classList.remove('navbar-dark', 'bg-dark');
+    header.classList.add('navbar-light', 'header-primarycolor');
+    localStorage.setItem('darkMode', 'false');
+  }
+}
+
+window.onload = function () {
+  var darkModePref = localStorage.getItem('darkMode');
+  if (darkModePref === 'true') {
+    darkModeSwitch.checked = true;
+    toggleDarkMode();
+  }
+};
+
+darkModeSwitch.addEventListener('change', toggleDarkMode);
