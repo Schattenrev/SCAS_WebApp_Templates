@@ -16,9 +16,6 @@
     <script src="/Scripts/Include.js"></script>
 
     <style>
-
-        
-
         .bg-light {
             background-color: #eaeef3 !important;
         }
@@ -28,7 +25,6 @@
             width: 400px;
         }
     </style>
-
 </head>
 
 <body>
@@ -129,13 +125,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6" style="width: 400px; height: 200px;">
                         <div class="card">
                             <div class="card-header">
                                 Pie Chart (Distribution)
                             </div>
-                            <div class="card-body">
-                                <canvas id="anotherChart" width="400" height="200"></canvas>
+                            <div class="card-body" >
+                                <canvas id="anotherChart" ></canvas>
                             </div>
                         </div>
                     </div>
@@ -183,7 +179,7 @@
                 }
             });
 
-            var anotherChartData = { 
+            var anotherChartData = {
                 labels: ['Category A', 'Category B', 'Category C'],
                 datasets: [{
                     label: 'Data',
@@ -194,7 +190,7 @@
             };
 
             var anotherChart = new Chart(document.getElementById('anotherChart').getContext('2d'), {
-                type: 'pie',  
+                type: 'pie',
                 data: anotherChartData,
                 options: {}
             });
